@@ -5,7 +5,7 @@ import mantle from "@/assets/img/projects/mantle.jpg";
 import nftRetail from "@/assets/img/projects/nft-retail.jpg";
 import nftSoulbound from "@/assets/img/projects/nft-soulbound.jpg";
 
-export async function GET(request) {
+export async function GET(request: any) {
   const projects = [
     {
       slug: "tenggara-nft-use-case-demo-website",
