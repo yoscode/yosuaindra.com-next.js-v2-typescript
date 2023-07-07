@@ -1,0 +1,58 @@
+@import "variables";
+@import "breakpoints";
+@import "container";
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70px;
+  background-color: $primary;
+  margin-top: auto;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include global-container();
+
+    span {
+      color: #ccc;
+      font-size: 13px;
+    }
+
+    .term {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      p {
+        color: $white;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+//___ BREAKPOINTS ___
+@include md {
+  .footer {
+    .container {
+      flex-direction: row;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      justify-content: center;
+      align-items: center;
+      span {
+        order: 3;
+        font-size: 11px;
+        margin-top: 10px;
+      }
+      .term {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}

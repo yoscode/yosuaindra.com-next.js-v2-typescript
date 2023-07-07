@@ -1,0 +1,260 @@
+@import "variables";
+@import "breakpoints";
+@import "container";
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden !important;
+  background: $accent;
+  &::before {
+    content: "";
+    background: #dfe7fb;
+    width: 100%;
+    height: 80px;
+    transform: skewY(-2deg);
+    position: absolute;
+    z-index: 999;
+    top: -40px;
+  }
+  &::after {
+    content: "";
+    background: white;
+    width: 100%;
+    height: 80px;
+    transform: skewY(-2deg);
+    position: absolute;
+    z-index: 999;
+    bottom: -40px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include global-container();
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 60%;
+      margin-bottom: 0;
+      h2 {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 0;
+      }
+      p {
+        text-align: center;
+        line-height: 1.4;
+      }
+    }
+
+    .cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px 0;
+
+      .card {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: $white;
+        width: 32%;
+        min-height: 300px;
+        box-shadow: 0 5px 15px 5px rgba($color: #000000, $alpha: 0.03);
+        border-radius: 6px;
+        padding: 30px;
+
+        .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: $accent2;
+          border: 1px solid #cad7dc;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          span {
+            display: flex;
+            margin: auto;
+            color: $primary;
+            font-size: 25px;
+          }
+        }
+        h4 {
+          margin-bottom: 0;
+          font-size: 20px;
+        }
+        p {
+          line-height: 1.4;
+        }
+      }
+    }
+
+    .aboutdiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      overflow-x: hidden;
+    }
+
+    .expert {
+      .cards {
+        .card {
+          width: 400px !important;
+        }
+      }
+    }
+
+    .member,
+    .expert {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      &:not(:last-child) {
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+      .heading {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        h2 {
+          font-size: 40px;
+          font-weight: bold;
+          text-align: center;
+        }
+        p {
+          text-align: center;
+          line-height: 1.4;
+        }
+      }
+      .cards {
+        .card {
+          box-shadow: none;
+          background-color: transparent;
+          padding: 0;
+          display: flex;
+          width: 280px;
+          align-items: center;
+          .imgMember {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px 5px rgba($color: #000000, $alpha: 0.03);
+            background-color: $primary;
+          }
+          .desc {
+            z-index: 2;
+            padding: 0 25px;
+            padding-bottom: 20px;
+            position: relative;
+            h4 {
+              text-align: center;
+              font-weight: bold;
+              text-transform: uppercase;
+              font-size: 17px;
+              color: #03577b;
+            }
+            h5 {
+              text-align: center;
+              margin: 0;
+              margin-top: 3px;
+              font-weight: bold;
+              font-size: 15px;
+            }
+            .linkedin {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 13px;
+                margin-top: 15px;
+                background-color: #0077b5;
+                color: white;
+                padding: 7px 10px;
+                border-radius: 6px;
+                img {
+                  margin-right: 5px;
+                }
+              }
+            }
+            p {
+              text-align: justify;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//___ BREAKPOINTS ___
+@include lg {
+  .about {
+    .container {
+      .cards {
+        .card {
+          width: 47%;
+        }
+      }
+    }
+  }
+}
+
+@include md {
+  .about {
+    padding-top: 100px;
+    .container {
+      .heading {
+        width: 80%;
+      }
+      .cards {
+        .card {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@include sm {
+  .about {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 0;
+    .container {
+      width: 100%;
+      .heading {
+        width: 100%;
+      }
+      .cards {
+        .card {
+          height: 100%;
+        }
+      }
+    }
+  }
+}

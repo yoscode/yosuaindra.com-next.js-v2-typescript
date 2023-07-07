@@ -1,0 +1,69 @@
+@import "@/styles/breakpoints";
+@import "@/styles/container";
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  padding: 100px 0;
+  overflow-x: hidden;
+  p {
+    font-size: max(17px, min(4vw, 22px));
+    color: #ccc;
+    text-align: center;
+    width: 670px;
+    @include xl {
+      width: 90%;
+    }
+    @include md {
+      width: 90%;
+    }
+  }
+  h1 {
+    font-weight: 800;
+    font-size: max(40px, min(5vw, 76px));
+    line-height: 1;
+    letter-spacing: -0.05em;
+    padding: 20px;
+    color: #ccc;
+    text-align: center;
+    // background-color: #565656;
+    // color: transparent;
+    // text-shadow: 2px 2px 7px rgba(255, 255, 255, 0.5);
+    // background-clip: text;
+    span {
+      font-size: max(35px, min(4vw, 45px));
+      display: block;
+    }
+  }
+  .btn-wrapper {
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+    .btn-default {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #ccc;
+      color: #000;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 10px 30px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      @include xl {
+        font-size: 15px;
+        padding: 10px 20px;
+      }
+      @include md {
+        font-size: 15px;
+        padding: 10px 20px;
+      }
+      &:hover {
+        background-color: #999;
+      }
+    }
+  }
+}

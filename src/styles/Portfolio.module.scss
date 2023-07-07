@@ -1,0 +1,444 @@
+@import "variables";
+@import "breakpoints";
+@import "container";
+
+.portfolio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+  background: #dfe7fb;
+  &::before {
+    content: "";
+    background: white;
+    width: 100%;
+    height: 80px;
+    transform: skewY(-2deg);
+    position: absolute;
+    z-index: 8;
+    top: -40px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include global-container();
+    width: 100%;
+
+    .btnMore {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+      width: 250px;
+      font-size: 15px;
+      height: 40px;
+      border-radius: 4px;
+      color: white;
+      font-weight: 500;
+      background: $primary;
+      border: 1px solid $primary;
+      transition: 0.2s;
+      &:hover {
+        box-shadow: inset 250px 0 0 0 $secondary;
+        border: 1px solid $secondary;
+      }
+    }
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      h2 {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      p {
+        text-align: center;
+        line-height: 1.4;
+      }
+    }
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 25px;
+      @include xl {
+        grid-template-columns: 1fr 1fr;
+      }
+      @include md {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        background-color: $accent;
+        box-shadow: 0 5px 15px 5px rgba($color: #000000, $alpha: 0.1);
+        border-radius: 6px;
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+        @include xl {
+          max-width: 100%;
+          flex-direction: column;
+          padding: 20px;
+        }
+        .img {
+          width: 100%;
+          min-height: 250px;
+          overflow: hidden;
+          img {
+            transition: 0.3s;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 6px 6px 0 0;
+          }
+        }
+        .desc {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          padding: 25px;
+          @include xl {
+            padding: 0;
+            margin-top: 20px;
+          }
+          h4 {
+            margin-top: 0;
+            font-size: 20px;
+            margin-bottom: 0;
+          }
+          p {
+            line-height: 1.4;
+          }
+          .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            width: 115px;
+            font-size: 14px;
+            height: 40px;
+            border-radius: 4px;
+            color: white;
+            font-weight: 500;
+            background: $primary;
+            border: 1px solid $primary;
+            transition: 0.2s;
+            &:hover {
+              box-shadow: inset 115px 0 0 0 $secondary;
+              border: 1px solid $secondary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.portfolioDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  position: relative;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include global-container();
+    width: 100%;
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      h2 {
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        color: #03577b;
+        letter-spacing: 1.4px;
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+      }
+    }
+    .content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      width: 80%;
+      .custom-slider {
+        position: relative;
+        width: 100%;
+        .dots {
+          display: flex;
+          justify-content: center;
+          margin: 0;
+          padding: 1.3rem 0;
+          list-style-type: none;
+          bottom: -15px;
+          @include lg {
+            bottom: -25px;
+          }
+
+          li {
+            margin: 0 0.5rem;
+          }
+
+          button {
+            box-shadow: 0 0 1px #efefef;
+            display: block;
+            width: 1.7rem;
+            height: 5px;
+            padding: 0;
+            border: none;
+            background-color: #efefef;
+            text-indent: -9999px;
+          }
+
+          :global(li.slick-active) button {
+            background-color: #333;
+          }
+        }
+        .SlickPrevArrow {
+          fill: #333;
+          background: #fff;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          right: -40px;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          z-index: 1;
+          @include xl {
+            width: 30px;
+            height: 30px;
+            right: -25px;
+          }
+        }
+        .SlickNextArrow {
+          fill: #333;
+          background: #fff;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          left: -40px;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          z-index: 1;
+          @include xl {
+            width: 30px;
+            height: 30px;
+            left: -25px;
+          }
+        }
+        div {
+          img {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+      .link {
+        position: sticky;
+        top: 80px;
+        background-color: rgba(255, 255, 255, 1);
+        width: 100%;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        z-index: 1;
+        a {
+          background: $primary;
+          color: #fff;
+          border-radius: 6px;
+          padding: 8px 17px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          font-weight: 500;
+          @include lg {
+            font-size: 12px;
+            padding: 7px 10px;
+          }
+          svg {
+            width: 25px;
+            height: 25px;
+            @include lg {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      div {
+        p {
+          line-height: 1.6;
+          text-align: justify;
+        }
+        a {
+          color: #03577b;
+        }
+      }
+    }
+  }
+}
+
+.portfolioLanding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  position: relative;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include global-container();
+    width: 100%;
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      h1 {
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    .content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+      .card-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 25px;
+        @include xl {
+          grid-template-columns: 1fr 1fr;
+        }
+        @include md {
+          grid-template-columns: 1fr;
+        }
+
+        .card {
+          display: flex;
+          flex-direction: column;
+          background-color: $accent;
+          box-shadow: 0 5px 15px 5px rgba($color: #000000, $alpha: 0.1);
+          border-radius: 6px;
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
+          }
+          @include xl {
+            max-width: 100%;
+            flex-direction: column;
+            padding: 20px;
+          }
+          .img {
+            width: 100%;
+            min-height: 250px;
+            overflow: hidden;
+            img {
+              transition: 0.3s;
+              width: 100%;
+              height: 250px;
+              object-fit: cover;
+              border-radius: 6px 6px 0 0;
+            }
+          }
+          .desc {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            padding: 25px;
+            @include xl {
+              padding: 0;
+              margin-top: 20px;
+            }
+            h4 {
+              margin-top: 0;
+              font-size: 20px;
+              margin-bottom: 0;
+            }
+            p {
+              line-height: 1.4;
+            }
+            .btn {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-top: 20px;
+              width: 115px;
+              font-size: 14px;
+              height: 40px;
+              border-radius: 4px;
+              color: white;
+              font-weight: 500;
+              background: $primary;
+              border: 1px solid $primary;
+              transition: 0.2s;
+              &:hover {
+                box-shadow: inset 115px 0 0 0 $secondary;
+                border: 1px solid $secondary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
